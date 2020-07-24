@@ -17,7 +17,11 @@ export default class TransactionForm extends Component {
                     <input onChange={(event) => this.props.handleChange(event)} type="text" id="payee" name="payee" value={this.props.payee}/>
                 </label>
                 <label htmlFor="category">Category: 
-                    <input onChange={(event) => this.props.handleChange(event)} type="text" id="category" name="category" value={this.props.category}/>
+                    <select onChange={(event) => this.props.handleChange(event)} type="text" id="category" name="category" value={this.props.category}>
+                        {this.props.budget.map((budget, index) => {
+                            return <option key={index} value={budget.title}>{budget.title}</option>
+                        })}
+                    </select>
                 </label>
                 <label htmlFor="spent">Spent: 
                     <input onChange={(event) => this.props.handleChange(event)} type="number" id="spent" name="spent" value={this.props.spent}/>
