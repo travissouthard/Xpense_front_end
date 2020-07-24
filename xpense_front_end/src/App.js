@@ -64,12 +64,10 @@ class App extends React.Component {
         spent: 0,
         transactions: [],
       }],
-      transactionForm: {
-        date: "",
-        payee: "",
-        category: "",
-        spent: 0,
-      },
+      date: "",
+      payee: "",
+      category: "",
+      spent: 0,
     }
   }
 
@@ -98,7 +96,7 @@ class App extends React.Component {
 
   handleChange = (event) => {
     this.setState({
-      [event.target.id]: event.target.value,
+      [event.target.id]: event.target.value
     })
   }
 
@@ -107,19 +105,21 @@ class App extends React.Component {
     fetch(this.props.baseUrl + "/budgets/" + this.state.category, {
       method: "PUT",
       body: JSON.stringify({
-        transactions: [{
-          date: this.state.date,
-          payee: this.state.payee,
-          category: this.state.category,
-          spent: this.state.spent,
-        }],
-      }).then(res => res.json(
+        date: this.state.date,
+        payee: this.state.payee,
+        category: this.state.category,
+        spent: this.state.spent,
+      }),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    }).then(res => res.json(
       )).then(data => {
         const copyBudgets = [...this.state.budget];
         const findIndex = this.state.budget.findIndex(budget => budget.category === data.category);
         copyBudgets[findIndex].transactions.push(data.transactions);
         this.setState({budget: copyBudgets});
-      })
+      }).catch(error => console.error({"Error": error}))
   }
 
   render() {
@@ -129,7 +129,10 @@ class App extends React.Component {
         <TransactionForm
           baseUrl={baseUrl}
           budget={this.state.budget}
-          transactionForm={this.state.transactionForm}
+          date={this.state.date}
+          payee={this.state.payee}
+          category={this.state.category}
+          spent={this.state.spent}
           handleChange={this.handleChange}
           handleSubmit={this.handleSubmit}
         />
