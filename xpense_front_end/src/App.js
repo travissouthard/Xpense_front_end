@@ -102,8 +102,7 @@ class App extends React.Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
-    console.log("The submit fired!")
-    fetch(baseUrl + "/budgets/" + this.state.category.toLowerCase(), {
+    fetch(baseUrl + "/budgets/" + this.state.category, {
       method: "PUT",
       body: JSON.stringify({
         date: this.state.date,
@@ -117,7 +116,7 @@ class App extends React.Component {
     }).then(res => res.json(
       )).then(data => {
         const copyBudgets = [...this.state.budget];
-        const findIndex = this.state.budget.findIndex(budget => budget.category === data.category);
+        const findIndex = this.state.budget.findIndex(budget => budget.title === data.title);
         copyBudgets[findIndex].transactions.push(data.transactions);
         this.setState({budget: copyBudgets});
       }).catch(error => console.error({"Error": error}))
