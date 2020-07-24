@@ -51,14 +51,9 @@ class App extends React.Component {
   render() {
     return (
       <div>
-<<<<<<< HEAD
-        <BudgetForm baseUrl={baseUrl} addBudget={this.addBudget}/>
-        <BudgetTable budgets={this.state.budgets} />
-=======
         <h1>Xpense App</h1>
         <TransactionForm budget={this.state.budget}/>
         <BudgetTable budget={this.state.budget} />
->>>>>>> 959c62f780b07f640cdf99e8e2bf3fe5a4491fad
       </div>
     )
   }
