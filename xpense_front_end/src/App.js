@@ -68,6 +68,7 @@ class App extends React.Component {
       payee: "",
       category: "",
       spent: 0,
+      transactionFormOn: false,
     }
   }
 
@@ -118,24 +119,45 @@ class App extends React.Component {
         const copyBudgets = [...this.state.budget];
         const findIndex = this.state.budget.findIndex(budget => budget.title === data.title);
         copyBudgets[findIndex].transactions.push(data.transactions);
-        this.setState({budget: copyBudgets});
+        this.setState({
+          budget: copyBudgets,
+          date: "",
+          payee: "",
+          category: "",
+          spent: 0,
+        });
       }).catch(error => console.error({"Error": error}))
+  }
+
+  toggleTransactionForm = () => {
+    this.setState({
+      transactionFormOn: !this.state.transactionFormOn,
+      date: "",
+      payee: "",
+      category: "",
+      spent: 0,
+    })
   }
 
   render() {
     return (
       <div>
         <h1>Xpense App</h1>
-        <TransactionForm
-          baseUrl={baseUrl}
-          budget={this.state.budget}
-          date={this.state.date}
-          payee={this.state.payee}
-          category={this.state.category}
-          spent={this.state.spent}
-          handleChange={this.handleChange}
-          handleSubmit={this.handleSubmit}
-        />
+        {this.state.transactionFormOn ? (
+          <TransactionForm
+            baseUrl={baseUrl}
+            budget={this.state.budget}
+            date={this.state.date}
+            payee={this.state.payee}
+            category={this.state.category}
+            spent={this.state.spent}
+            handleChange={this.handleChange}
+            handleSubmit={this.handleSubmit}
+            toggleTransactionForm={this.toggleTransactionForm}
+          />
+          ) : (
+            <button onClick={() => this.toggleTransactionForm()}>Add New Transaction</button>
+          )}
         <BudgetTable budget={this.state.budget} />
       </div>
     )

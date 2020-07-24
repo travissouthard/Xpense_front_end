@@ -26,7 +26,8 @@ export default class TransactionForm extends Component {
                 <label htmlFor="spent">Spent: 
                     <input onChange={(event) => this.props.handleChange(event)} type="number" id="spent" name="spent" value={this.props.spent}/>
                 </label>
-                <input type="submit" value="Add Transaction" />
+                <input type="submit" value="Add Transaction"/>
+                <button onClick={() => this.props.toggleTransactionForm()}>Cancel</button>
             </form>
         )
     }
