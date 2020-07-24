@@ -2,6 +2,7 @@ import React from 'react';
 
 import BudgetForm from './components/BudgetForm'
 import BudgetTable from './components/BudgetTable'
+import BudgetInput from './components/BudgetInput'
 import TransactionForm from './components/TransactionForm';
 
 
@@ -16,17 +17,59 @@ const baseUrl = 'http://localhost:3003';
 // }
 console.log('current base URL:', baseUrl);
 
+//ran into error, had to hard code seed data 
 class App extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      budgets: []
+      budgets: [{
+        title: "Gas",
+        budget: 10,
+        spent: 6,
+        transactions: [],
+    },
+    {
+        title: "Food",
+        budget: 0,
+        spent: 0,
+        transactions: [],
+    },
+    {
+        title: "Lodging",
+        budget: 0,
+        spent: 0,
+        transactions: [],
+    },
+    {
+        title: "Entertainment",
+        budget: 0,
+        spent: 0,
+        transactions: [],
+    },
+    {
+        title: "Shopping",
+        budget: 0,
+        spent: 0,
+        transactions: [],
+    },
+    {
+        title: "Car rental",
+        budget: 0,
+        spent: 0,
+        transactions: [],
+    },
+    {
+        title: "Misc.",
+        budget: 0,
+        spent: 0,
+        transactions: [],
+    }]
     }
   }
 
 
   getBudget = () => {
-    fetch(baseUrl + '/').then(res => {
+    fetch(baseUrl + '/budgets').then(res => {
       console.log(baseUrl)
       return res.json();
     }).then(data => {
@@ -51,14 +94,9 @@ class App extends React.Component {
   render() {
     return (
       <div>
-<<<<<<< HEAD
-        <BudgetForm baseUrl={baseUrl} addBudget={this.addBudget}/>
-        <BudgetTable budgets={this.state.budgets} />
-=======
         <h1>Xpense App</h1>
         <TransactionForm budget={this.state.budget}/>
-        <BudgetTable budget={this.state.budget} />
->>>>>>> 959c62f780b07f640cdf99e8e2bf3fe5a4491fad
+        <BudgetTable budgets={this.state.budgets} />
       </div>
     )
   }
