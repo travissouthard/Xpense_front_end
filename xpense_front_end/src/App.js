@@ -2,6 +2,7 @@ import React from 'react';
 
 // import BudgetForm from './components/BudgetForm'
 import BudgetTable from './components/BudgetTable'
+import BudgetInput from './components/BudgetInput'
 import TransactionForm from './components/TransactionForm';
 
 
@@ -16,11 +17,53 @@ const baseUrl = 'http://localhost:3003';
 // }
 console.log('current base URL:', baseUrl);
 
+//ran into error, had to hard code seed data 
 class App extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      budget: []
+      budget: [{
+        title: "Gas",
+        budget: 10,
+        spent: 6,
+        transactions: [],
+    },
+    {
+        title: "Food",
+        budget: 0,
+        spent: 0,
+        transactions: [],
+    },
+    {
+        title: "Lodging",
+        budget: 0,
+        spent: 0,
+        transactions: [],
+    },
+    {
+        title: "Entertainment",
+        budget: 0,
+        spent: 0,
+        transactions: [],
+    },
+    {
+        title: "Shopping",
+        budget: 0,
+        spent: 0,
+        transactions: [],
+    },
+    {
+        title: "Car rental",
+        budget: 0,
+        spent: 0,
+        transactions: [],
+    },
+    {
+        title: "Misc.",
+        budget: 0,
+        spent: 0,
+        transactions: [],
+    }]
     }
   }
 
