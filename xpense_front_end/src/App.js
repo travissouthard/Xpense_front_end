@@ -22,6 +22,7 @@ class App extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
+<<<<<<< HEAD
       budgets: [{
         title: "Gas",
         budget: 10,
@@ -64,6 +65,9 @@ class App extends React.Component {
         spent: 0,
         transactions: [],
     }]
+=======
+      budget: []
+>>>>>>> 12dc706d84c8dd0903734cbeb02e54f8ae1a53cd
     }
   }
 
@@ -96,7 +100,7 @@ class App extends React.Component {
       <div>
         <h1>Xpense App</h1>
         <TransactionForm budget={this.state.budget}/>
-        <BudgetTable budgets={this.state.budgets} />
+        <BudgetTable budget={this.state.budget} />
       </div>
     )
   }
