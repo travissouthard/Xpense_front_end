@@ -2,7 +2,7 @@ import React from 'react';
 
 // import BudgetForm from './components/BudgetForm'
 import BudgetTable from './components/BudgetTable'
-import BudgetInput from './components/BudgetInput'
+// import BudgetInput from './components/BudgetInput'
 import TransactionForm from './components/TransactionForm';
 
 

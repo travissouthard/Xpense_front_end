@@ -28,7 +28,7 @@ export default class TransactionForm extends Component {
                 const copyBudgets = [...this.props.budget];
                 const findIndex = this.props.budget.findIndex(budget => budget.category === data.category);
                 copyBudgets[findIndex].transactions.push(data.transactions);
-                this.setState({budget: copyBudgets})
+                // this.setState({budget: copyBudgets}) // Would I need to put this in app.js and prop it down to set State in the App.js and if so, how do i give the category as a parameter then with the event param
             })
         })
     }
