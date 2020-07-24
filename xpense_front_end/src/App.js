@@ -83,7 +83,7 @@ class App extends React.Component {
   }
 
   addBudget = (newBudget) => {
-    const copyBudgets = [...this.state.budgets];
+    const copyBudgets = [...this.state.budget];
     copyBudgets.push(newBudget);
     this.setState({
       budgets: copyBudgets,
@@ -102,7 +102,8 @@ class App extends React.Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
-    fetch(this.props.baseUrl + "/budgets/" + this.state.category, {
+    console.log("The submit fired!")
+    fetch(baseUrl + "/budgets/" + this.state.category.toLowerCase(), {
       method: "PUT",
       body: JSON.stringify({
         date: this.state.date,
