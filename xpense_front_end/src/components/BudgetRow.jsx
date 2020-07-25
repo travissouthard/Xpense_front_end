@@ -6,10 +6,10 @@ class BudgetRow extends Component {
   render () {
     return (
               <tr key={this.props.index}>
-                <td>{this.props.title}</td>
-                <td><BudgetInput budget={this.props.budget}/></td>
-                <td>{this.props.spent}</td>
-                <td>{this.props.budget-this.props.spent}</td>
+                <td>{this.props.budget.title}</td>
+                <td><BudgetInput budget={this.props.budget.budget}/></td>
+                <td>{this.props.budget.spent}</td>
+                <td>{this.props.budget.budget-this.props.budget.spent}</td>
               </tr>
     )
   }

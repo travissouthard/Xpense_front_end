@@ -22,7 +22,6 @@ class App extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-<<<<<<< HEAD
       budgets: [{
         title: "Gas",
         budget: 10,
@@ -65,9 +64,6 @@ class App extends React.Component {
         spent: 0,
         transactions: [],
     }]
-=======
-      budget: []
->>>>>>> 12dc706d84c8dd0903734cbeb02e54f8ae1a53cd
     }
   }
 
