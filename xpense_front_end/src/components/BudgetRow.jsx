@@ -12,20 +12,25 @@ class BudgetRow extends Component {
       transactionModalOn: !this.state.transactionModalOn,
     })
   }
+  sumTransactions = (array) => {
+    let sum = 0;
+    array.map(transaction => sum += Number(transaction.spent));
+    return sum;
+  }
   render () {
     return (
       <tr>
         <td>{this.props.title}</td>
         <td><BudgetInput budget={this.props.budget}/></td>
         <td onClick={() => this.toggleTransactionModal()}>
-          {this.props.spent}
+          {this.sumTransactions(this.props.transactions)}
           {this.state.transactionModalOn ? (
             <TransactionModal transactions={this.props.transactions}/>
           ) : (
             ""
           )}
         </td>
-        <td>{this.props.budget-this.props.spent}</td>
+        <td>{this.props.budget-this.sumTransactions(this.props.transactions)}</td>
       </tr>
     )
   }
