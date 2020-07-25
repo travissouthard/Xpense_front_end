@@ -125,6 +125,7 @@ class App extends React.Component {
           payee: "",
           category: "",
           spent: 0,
+          transactionFormOn: false,
         });
       }).catch(error => console.error({"Error": error}))
   }
