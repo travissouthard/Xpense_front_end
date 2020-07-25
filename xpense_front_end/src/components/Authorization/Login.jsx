@@ -4,7 +4,7 @@ export default class Login extends Component {
     render() {
         return (
             <div>
-                <button onClick={Login}>Login</button>
+                <button id="login" onClick={Login}>Login</button>
             </div>
         )
     }

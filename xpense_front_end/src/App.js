@@ -1,5 +1,5 @@
 import React from 'react';
-
+import {BrowserRouter, Switch, Route} from "react-router-dom"
 // import BudgetForm from './components/BudgetForm'
 import BudgetTable from './components/BudgetTable'
 // import BudgetInput from './components/BudgetInput'
@@ -142,8 +142,13 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
+      <>
+      <BrowserRouter>
         <Header />
+        <Switch>
+          {/* <Route exact path="/" component={Home}/>
+          <Route path="/register" component={Register}/>
+          <Route path="/login" component={Login}/> */}
         <h1>Xpense App</h1>
         {this.state.transactionFormOn ? (
           <TransactionForm
@@ -161,7 +166,9 @@ class App extends React.Component {
             <button onClick={() => this.toggleTransactionForm()}>Add New Transaction</button>
           )}
         <BudgetTable budget={this.state.budget} />
-      </div>
+        </Switch>
+        </BrowserRouter>
+      </>
     )
   }
 }
