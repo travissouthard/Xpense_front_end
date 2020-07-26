@@ -1,11 +1,15 @@
 import React from 'react';
-//import {BrowserRouter, Switch, Route} from "react-router-dom"
-// import BudgetForm from './components/BudgetForm'
-import BudgetTable from './components/BudgetTable'
-// import BudgetInput from './components/BudgetInput'
+import {BrowserRouter, Switch, Route} from "react-router-dom";
+// import BudgetForm from './components/BudgetForm';
+import Axios from "axios";
+import BudgetTable from './components/BudgetTable';
+// import BudgetInput from './components/BudgetInput';
 import TransactionForm from './components/TransactionForm';
-import Header from "./components/Header"
-
+import Header from "./components/Header";
+import Home from './components/pages/Home';
+import Login from './components/Authorization/Login';
+import Register from './components/Authorization/Register';
+import UserContext from './context/UserContext';
 
 
 
@@ -18,7 +22,35 @@ const baseUrl = 'http://localhost:3003';
 //   baseUrl = 'https://peaceful-stream-27012.herokuapp.com';
 // }
 console.log('current base URL:', baseUrl);
-
+//???? All of this portion was written in hooks but the rest in not formatted this way...not sure how to integrate this UserContext to our App.js...???? Explanation of the function is https://youtu.be/sWfD20ortB4?t=1398
+//export default function App() {
+//   const [userData, setUserData] = useState({
+//     token: undefined,
+//     user: undefined,
+//   })
+// } 
+// Part 5 of MERN stack video...10:33
+// useEffect(() => {
+//   const checkLoggedIn = async () => {
+//     let token = localStorage.getItem("auth-token")
+//     if (token === null) {
+//       localStorage.setItem("auth-token,", "")
+//       token = "",
+//     }
+//     const tokenRes = await Axios.post("http://localhost:3003/user/tokenIsValid", null,
+//     {headers: { "x-auth-token": token }}
+//     )
+//     if (tokenRes.data) {
+//       const userRes = await Axios.get("http://localhost:3003/user/", {headers: { "x-auth-token": token},
+//     })
+//     setUserData({
+//       token,
+//       user: userRes.data,
+//     })
+//     }
+//   }
+//   checkLoggedIn()
+// }, [])
 //ran into error, had to hard code seed data 
 class App extends React.Component {
   constructor(props) {
@@ -146,12 +178,13 @@ class App extends React.Component {
   render() {
     return (
       <>
-      {/* <BrowserRouter> */}
+      <BrowserRouter>
+      {/* <UserContext.Provider value={{ userData, setUserData }}> */}
         <Header />
-        {/* <Switch>
+        <Switch>
           <Route exact path="/" component={Home}/>
           <Route path="/register" component={Register}/>
-          <Route path="/login" component={Login}/>  */}
+          <Route path="/login" component={Login}/> 
         <h1>Xpense App</h1>
         {this.state.transactionFormOn ? (
           <TransactionForm
@@ -169,8 +202,9 @@ class App extends React.Component {
             <button onClick={() => this.toggleTransactionForm()}>Add New Transaction</button>
           )}
         <BudgetTable budget={this.state.budget} />
-        {/* </Switch>
-        </BrowserRouter> */}
+        </Switch>
+        {/* </UserContext.Provider> */}
+        </BrowserRouter>
       </>
     )
   }

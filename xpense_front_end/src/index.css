@@ -11,13 +11,18 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 } */
-@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@700&family=Righteous&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Nanum Gothic', sans-serif;
+  font-family: 'Roboto', sans-serif;
+}
+
+a {
+  text-decoration: unset;
+  color: #49b5e7;
 }
 
 ul {
@@ -26,6 +31,7 @@ ul {
 }
 
 button, input[type="submit"] {
+  border: none;
   background: none;
   color: unset;
   cursor: pointer;
@@ -47,39 +53,44 @@ h1, h2, h3, h4, h5, h6, p, ol, ul {
 
 #Header .title {
   margin: 0;
-  padding: 18px;
+  padding: 0 1rem;
   color: whitesmoke;
   font-family: 'Righteous', cursive;
   font-size: 50px;
   font-weight: 175;
 }
 
-#Header .buttons {
-  display: flex;
+#Header .authOptions {
   height: 100%;
-  padding: 0px;
-  background-color: slategrey;
+  display: flex;
 }
 
-#register {
+#Header .authOptions button {
+  padding: 0 1rem;
+  background-color: slategrey;
+  color: whitesmoke;
+  font-size: 1.1rem;
+}
+
+/* #register {
   height: 100%;
   border: none;
   padding: 10px;
   font-size: 1.2rem;
-}
+} */
 
-#register:hover {
+#Header .authOptions button:hover {
   background-color: rgb(191, 209, 226);
 }
 
-#login {
+/* #login {
   height: 100%;
   border: none;
   padding: 10px;
   font-size: 1.2rem;
-}
+} */
 
-#login:hover {
+#Header .authOptions button:hover {
   background-color: rgb(191, 209, 226);
 }
 
