@@ -17,7 +17,6 @@ code {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Roboto', sans-serif;
 }
 
 a {
@@ -40,7 +39,20 @@ button, input[type="submit"] {
 h1, h2, h3, h4, h5, h6, p, ol, ul {
   margin: 1em 0; 
 }
+/* general */
 
+body {
+  font-family: 'Roboto', sans-serif;
+}
+
+.page {
+  padding: 1rem;
+}
+
+.container {
+  margin: 0px auto;
+  max-width: 900px;
+}
 /* Header */
 
 #Header {
@@ -94,6 +106,43 @@ h1, h2, h3, h4, h5, h6, p, ol, ul {
   background-color: rgb(191, 209, 226);
 }
 
+/* form */
+.form label, .form input {
+  display: block;
+}
+
+.form input {
+  margin-bottom: 1rem;
+}
+
+.form label {
+  margin-bottom: 0.2rem;
+}
+.form input[type="text"],
+.form input[type="email"],
+.form input[type="password"] {
+  width: 100%;
+  padding: 0.3rem;
+  border: 1px solid #a9bfc9;
+  border-radius: 6px;
+  background-color: #d2d9dc;
+  font-size: 1.1.rem;
+}
+
+.form input:focus {
+  border: 1px solid #49b5e7;
+  box-shadow: inset 0px 0px 5px #6aaac7;
+  outline: none;
+}
+
+.form input[type="submit"] {
+  padding: 0.3rem 0.5rem;
+  border: 1px solid #386980;
+  background-color: #4985a0;
+  border-radius: 6px;
+  color: whitesmoke;
+  font-size: 1.1rem;
+}
 
 /* @media screen and (max-width: 480px) {
   #Header .title {
