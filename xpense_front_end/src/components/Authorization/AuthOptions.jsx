@@ -13,6 +13,7 @@ export default function AuthOptions() {
             token: undefined,
             user: undefined,
         })
+        localStorage.setItem("auth-token", "")
     }
 
     return (
