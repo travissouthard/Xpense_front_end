@@ -1,33 +1,34 @@
 import React, { Component } from 'react'
 
 export default class TransactionForm extends Component {
-    state = {
-        date: "",
-        payee: "",
-        category: "",
-        spent: 0,
-    }
-    handleChange = (event) => {
-        this.setState({
-            [event.target.id]: event.target.value,
-        })
-    }
     render() {
         return (
-            <form>
+            <form onSubmit={(event) => {this.props.handleSubmit(event)}}>
                 <label htmlFor="date">Date: 
-                    <input onChange={(event) => this.handleChange(event)} type="date" id="date" name="date" value={this.state.date}/>
+                    <input
+                        onChange={(event) => this.props.handleChange(event)}
+                        type="date"
+                        id="date"
+                        name="date"
+                        value={this.props.date}
+                    />
                 </label>
                 <label htmlFor="payee">Payee: 
-                    <input onChange={(event) => this.handleChange(event)} type="text" id="payee" name="payee" value={this.state.payee}/>
+                    <input onChange={(event) => this.props.handleChange(event)} type="text" id="payee" name="payee" value={this.props.payee}/>
                 </label>
                 <label htmlFor="category">Category: 
-                    <input onChange={(event) => this.handleChange(event)} type="text" id="category" name="category" value={this.state.category}/>
+                    <select onChange={(event) => this.props.handleChange(event)} type="text" id="category" name="category" value={this.props.category}>
+                        <option key="0" value="">Select one:</option>
+                        {this.props.budget.map((budget, index) => {
+                            return <option key={index + 1} value={budget.title}>{budget.title}</option>
+                        })}
+                    </select>
                 </label>
                 <label htmlFor="spent">Spent: 
-                    <input onChange={(event) => this.handleChange(event)} type="number" id="spent" name="spent" value={this.state.spent}/>
+                    <input onChange={(event) => this.props.handleChange(event)} type="number" id="spent" name="spent" value={this.props.spent}/>
                 </label>
-                <input type="submit" value="Add Transaction" />
+                <input type="submit" value="Add Transaction"/>
+                <button onClick={() => this.props.toggleTransactionForm()}>Cancel</button>
             </form>
         )
     }
