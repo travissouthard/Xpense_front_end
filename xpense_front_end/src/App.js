@@ -118,16 +118,18 @@ class App extends React.Component {
     }).then(res => res.json(
       )).then(data => {
         const copyBudgets = [...this.state.budget];
-        const findIndex = this.state.budget.findIndex(budget => budget.title === data.title);
-        copyBudgets[findIndex].transactions.push(data.transactions);
+        const findIndex = this.state.budget.findIndex(budget => budget._id === data._id);
+        copyBudgets[findIndex] = data;
         this.setState({
           budget: copyBudgets,
           date: "",
           payee: "",
           category: "",
           spent: 0,
+          transactionFormOn: false,
         });
       }).catch(error => console.error({"Error": error}))
+    this.getBudget()
   }
 
   toggleTransactionForm = () => {
