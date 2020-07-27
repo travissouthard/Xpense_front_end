@@ -17,7 +17,7 @@ const baseUrl = 'http://localhost:3003';
 // }
 console.log('current base URL:', baseUrl);
 
-//ran into error, had to hard code seed data 
+//note: ran into error, had to hard code seed data- Tania 
 class App extends React.Component {
   constructor(props) {
     super(props)
@@ -27,43 +27,43 @@ class App extends React.Component {
         budget: 10,
         spent: 6,
         transactions: [],
-      },
-      {
+    },
+    {
         title: "Food",
         budget: 0,
         spent: 0,
         transactions: [],
-      },
-      {
+    },
+    {
         title: "Lodging",
         budget: 0,
         spent: 0,
         transactions: [],
-      },
-      {
+    },
+    {
         title: "Entertainment",
         budget: 0,
         spent: 0,
         transactions: [],
-      },
-      {
+    },
+    {
         title: "Shopping",
         budget: 0,
         spent: 0,
         transactions: [],
-      },
-      {
+    },
+    {
         title: "Car rental",
         budget: 0,
         spent: 0,
         transactions: [],
-      },
-      {
+    },
+    {
         title: "Misc.",
         budget: 0,
         spent: 0,
         transactions: [],
-      }],
+    }],
       date: "",
       payee: "",
       category: "",
@@ -73,7 +73,7 @@ class App extends React.Component {
   }
 
   getBudget = () => {
-    fetch(baseUrl + '/').then(res => {
+    fetch(baseUrl + '/budgets').then(res => {
       // console.log(baseUrl)
       return res.json();
     }).then(data => {
@@ -160,7 +160,7 @@ class App extends React.Component {
           ) : (
             <button onClick={() => this.toggleTransactionForm()}>Add New Transaction</button>
           )}
-        <BudgetTable budget={this.state.budget} />
+        <BudgetTable budget={this.state.budget} baseUrl={baseUrl} />
       </div>
     )
   }

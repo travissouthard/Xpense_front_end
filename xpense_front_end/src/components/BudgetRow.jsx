@@ -17,11 +17,14 @@ class BudgetRow extends Component {
     array.map(transaction => sum += Number(transaction.spent));
     return sum;
   }
+  updateBudgetValue = (budgetValue) => {
+    this.state.budget.budget = budgetValue;
+  }
   render () {
     return (
       <tr>
         <td>{this.props.title}</td>
-        <td><BudgetInput budget={this.props.budget}/></td>
+        <td><BudgetInput budget={this.props.budget} updateBudget={this.updateBudgetValue} baseUrl={this.props.baseUrl}/></td>
         <td onClick={() => this.toggleTransactionModal()}>
           {this.sumTransactions(this.props.transactions)}
           {this.state.transactionModalOn ? (
@@ -30,7 +33,7 @@ class BudgetRow extends Component {
             ""
           )}
         </td>
-        <td>{this.props.budget-this.sumTransactions(this.props.transactions)}</td>
+        <td>{this.props.budget.budget-this.sumTransactions(this.props.transactions)}</td>
       </tr>
     )
   }
