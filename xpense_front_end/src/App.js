@@ -21,52 +21,12 @@ class App extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      budget: [{
-        title: "Gas",
-        budget: 10,
-        spent: 6,
-        transactions: [],
-    },
-    {
-        title: "Food",
-        budget: 0,
-        spent: 0,
-        transactions: [],
-    },
-    {
-        title: "Lodging",
-        budget: 0,
-        spent: 0,
-        transactions: [],
-    },
-    {
-        title: "Entertainment",
-        budget: 0,
-        spent: 0,
-        transactions: [],
-    },
-    {
-        title: "Shopping",
-        budget: 0,
-        spent: 0,
-        transactions: [],
-    },
-    {
-        title: "Car rental",
-        budget: 0,
-        spent: 0,
-        transactions: [],
-    },
-    {
-        title: "Misc.",
-        budget: 0,
-        spent: 0,
-        transactions: [],
-    }],
+      budget: [],
       date: "",
       payee: "",
       category: "",
       spent: 0,
+      budgetValue: 0,
       budgetFormOn: false,
       transactionFormOn: false,
     }
@@ -104,7 +64,7 @@ class App extends React.Component {
 
   handleNewTransaction = (event) => {
     event.preventDefault();
-    fetch(baseUrl + "budgets/" + this.state.category, {
+    fetch(baseUrl + "budgets/transaction/" + this.state.category, {
       method: "PUT",
       body: JSON.stringify({
         date: this.state.date,
@@ -132,12 +92,12 @@ class App extends React.Component {
     this.getBudget()
   }
 
-  handleBudgetValueChange = (event, id, index) => {
+  handleBudgetValueChange = (event, id, value) => {
     event.preventDefault();
     fetch(baseUrl + 'budgets/' + id, {
       method: 'PUT',
       body: JSON.stringify({
-        budget: this.state.budget[index].budget,
+        budget: value,
       }),
       headers: {
       'Content-Type': 'application/json',
@@ -179,7 +139,7 @@ class App extends React.Component {
           budget: copyBudgets,
         });
       }).catch(error => console.error({"Error": error}))
-    this.getBudget()
+    this.getBudget();
   }
 
   toggleBudgetForm = () => {

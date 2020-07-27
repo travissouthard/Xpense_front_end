@@ -19,7 +19,7 @@ class BudgetInput extends Component {
                 min="0"
                 value={this.state.budget}
                 onChange={(evt) => this.handleChange(evt)}
-                onBlur={(evt) => this.props.handleBudgetValueChange(evt, this.props.budget._id, this.props.index)}
+                onBlur={(evt) => this.props.handleBudgetValueChange(evt, this.props.budget._id, this.state.budget)}
             />
         )
     }
