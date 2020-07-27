@@ -1,8 +1,7 @@
 import React from 'react';
 
-// import BudgetForm from './components/BudgetForm'
+import BudgetForm from './components/BudgetForm'
 import BudgetTable from './components/BudgetTable'
-// import BudgetInput from './components/BudgetInput'
 import TransactionForm from './components/TransactionForm';
 
 
@@ -89,6 +88,7 @@ class App extends React.Component {
     this.setState({
       budgets: copyBudgets,
     });
+    this.getBudget();
   }
 
   componentDidMount() {
@@ -172,6 +172,7 @@ class App extends React.Component {
     return (
       <div>
         <h1>Xpense App</h1>
+        <BudgetForm baseUrl={baseUrl} addBudget={this.addBudget}/>
         {this.state.transactionFormOn ? (
           <TransactionForm
             baseUrl={baseUrl}
