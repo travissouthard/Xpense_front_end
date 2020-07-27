@@ -26,11 +26,20 @@ class BudgetRow extends Component {
     return (
       <tr>
         <td>{this.props.title}</td>
-        <td><BudgetInput budget={this.props.budget} updateBudget={this.updateBudgetValue} baseUrl={this.props.baseUrl}/></td>
+        <td>
+          <BudgetInput
+            budget={this.props.budget}
+            updateBudget={this.updateBudgetValue}
+            baseUrl={this.props.baseUrl}
+          />
+        </td>
         <td onClick={() => this.toggleTransactionModal()}>
           {this.sumTransactions(this.props.transactions)}
           {this.state.transactionModalOn ? (
-            <TransactionModal transactions={this.props.transactions}/>
+            <TransactionModal
+              transactions={this.props.transactions}
+              budget={this.props.budget}
+              deleteTransaction={this.props.deleteTransaction}/>
           ) : (
             ""
           )}

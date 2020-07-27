@@ -25,6 +25,7 @@ class BudgetTable extends Component {
                   transactions={budget.transactions}
                   baseUrl={this.props.baseUrl}
                   deleteCategory={this.props.deleteCategory}
+                  deleteTransaction={this.props.deleteTransaction}
                 />
             )
           })}

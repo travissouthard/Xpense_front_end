@@ -7,7 +7,7 @@ import TransactionForm from './components/TransactionForm';
 
 
 
-const baseUrl = 'http://localhost:3003';
+const baseUrl = 'http://localhost:3003/';
 //TODO setup env file for front end
 // let baseUrl;
 // if (process.env.NODE_ENV === 'development') {
@@ -73,7 +73,7 @@ class App extends React.Component {
   }
 
   getBudget = () => {
-    fetch(baseUrl + '/budgets').then(res => {
+    fetch(baseUrl + 'budgets').then(res => {
       // console.log(baseUrl)
       return res.json();
     }).then(data => {
@@ -103,7 +103,7 @@ class App extends React.Component {
 
   handleNewTransaction = (event) => {
     event.preventDefault();
-    fetch(baseUrl + "/budgets/" + this.state.category, {
+    fetch(baseUrl + "budgets/" + this.state.category, {
       method: "PUT",
       body: JSON.stringify({
         date: this.state.date,
@@ -132,7 +132,7 @@ class App extends React.Component {
   }
 
   deleteCategory = (id) => {
-    fetch(this.props.baseUrl + id, {
+    fetch(baseUrl + "budgets/" + id, {
       method: "DELETE",
     }).then(res => {
       const findIndex = this.state.budget.findIndex(budget => budget.id === id);
@@ -140,6 +140,22 @@ class App extends React.Component {
       copyBudget.splice(findIndex, 1);
       this.setState({budget: copyBudget});
     })
+  }
+
+  deleteTransaction = (index, category) => {
+    fetch(baseUrl + "budgets/" + category + "/" + index, {
+      method: "PUT",
+    }).then(res => res.json(
+      )).then(data => {
+        const copyBudgets = [...this.state.budget];
+        const findIndex = this.state.budget.findIndex(budget => budget._id === data._id);
+        console.log(findIndex)
+        copyBudgets[findIndex].transactions.splice(index, 1)
+        this.setState({
+          budget: copyBudgets,
+        });
+      }).catch(error => console.error({"Error": error}))
+    this.getBudget()
   }
 
   toggleTransactionForm = () => {
@@ -175,6 +191,7 @@ class App extends React.Component {
           budget={this.state.budget}
           baseUrl={baseUrl}
           deleteCategory={this.deleteCategory}
+          deleteTransaction={this.deleteTransaction}
         />
       </div>
     )
