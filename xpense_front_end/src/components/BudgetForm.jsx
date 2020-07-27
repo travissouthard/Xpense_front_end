@@ -43,6 +43,7 @@ export default class NewForm extends Component {
                     onChange={ (evt) => this.handleChange(evt) }
                     value={ this.state.title }/>
                 <input type="submit" value="Add Budget Category"/>
+                <button onClick={() => this.props.toggleBudgetForm()}>Cancel</button>
             </form>
         )
     }

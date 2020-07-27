@@ -67,6 +67,7 @@ class App extends React.Component {
       payee: "",
       category: "",
       spent: 0,
+      budgetFormOn: false,
       transactionFormOn: false,
     }
   }
@@ -158,6 +159,12 @@ class App extends React.Component {
     this.getBudget()
   }
 
+  toggleBudgetForm = () => {
+    this.setState({
+      budgetFormOn: !this.state.budgetFormOn,
+    })
+  }
+
   toggleTransactionForm = () => {
     this.setState({
       transactionFormOn: !this.state.transactionFormOn,
@@ -172,7 +179,15 @@ class App extends React.Component {
     return (
       <div>
         <h1>Xpense App</h1>
-        <BudgetForm baseUrl={baseUrl} addBudget={this.addBudget}/>
+        {this.state.budgetFormOn ? (
+          <BudgetForm
+            baseUrl={baseUrl}
+            addBudget={this.addBudget}
+            toggleBudgetForm={this.toggleBudgetForm}
+          />
+        ) : (
+          <button onClick={() => this.toggleBudgetForm()}>Add Budget Category</button>
+        )}
         {this.state.transactionFormOn ? (
           <TransactionForm
             baseUrl={baseUrl}
