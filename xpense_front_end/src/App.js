@@ -67,6 +67,7 @@ class App extends React.Component {
       payee: "",
       category: "",
       spent: 0,
+      budgetValue: 0,
       budgetFormOn: false,
       transactionFormOn: false,
     }
@@ -179,7 +180,7 @@ class App extends React.Component {
           budget: copyBudgets,
         });
       }).catch(error => console.error({"Error": error}))
-    this.getBudget()
+    this.getBudget();
   }
 
   toggleBudgetForm = () => {
@@ -229,6 +230,7 @@ class App extends React.Component {
         <BudgetTable
           budget={this.state.budget}
           baseUrl={baseUrl}
+          handleChange={this.handleChange}
           handleBudgetValueChange={this.handleBudgetValueChange}
           deleteCategory={this.deleteCategory}
           deleteTransaction={this.deleteTransaction}
