@@ -132,6 +132,28 @@ class App extends React.Component {
     this.getBudget()
   }
 
+  handleBudgetValueChange = (event, id) => {
+    event.preventDefault();
+    fetch(baseUrl + 'budgets/' + id, {
+      method: 'PUT',
+      body: JSON.stringify({
+        budget: this.state.budget,
+      }),
+      headers: {
+      'Content-Type': 'application/json',
+      },
+    }).then(res => {
+      return res.json();
+    }).then(data => {
+      console.log(data)
+      let copyBudget = [...this.state.budget];
+      let findIndex = this.state.budget.findIndex(budget => budget.id === id);
+      copyBudget[findIndex] = data;
+      this.setState({budget: copyBudget})
+    });
+    this.getBudget();
+  }
+
   deleteCategory = (id) => {
     fetch(baseUrl + "budgets/" + id, {
       method: "DELETE",
@@ -206,6 +228,7 @@ class App extends React.Component {
         <BudgetTable
           budget={this.state.budget}
           baseUrl={baseUrl}
+          handleBudgetValueChange={this.handleBudgetValueChange}
           deleteCategory={this.deleteCategory}
           deleteTransaction={this.deleteTransaction}
         />

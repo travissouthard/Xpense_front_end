@@ -28,9 +28,10 @@ class BudgetRow extends Component {
         <td>{this.props.title}</td>
         <td>
           <BudgetInput
+            baseUrl={this.props.baseUrl}
             budget={this.props.budget}
             updateBudget={this.updateBudgetValue}
-            baseUrl={this.props.baseUrl}
+            handleBudgetValueChange={this.props.handleBudgetValueChange}
           />
         </td>
         <td onClick={() => this.toggleTransactionModal()}>

@@ -24,6 +24,7 @@ class BudgetTable extends Component {
                   spent={budget.spent}
                   transactions={budget.transactions}
                   baseUrl={this.props.baseUrl}
+                  handleBudgetValueChange={this.props.handleBudgetValueChange}
                   deleteCategory={this.props.deleteCategory}
                   deleteTransaction={this.props.deleteTransaction}
                 />
