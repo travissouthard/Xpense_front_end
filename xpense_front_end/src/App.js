@@ -64,7 +64,7 @@ class App extends React.Component {
 
   handleNewTransaction = (event) => {
     event.preventDefault();
-    fetch(baseUrl + "budgets/" + this.state.category, {
+    fetch(baseUrl + "budgets/transaction/" + this.state.category, {
       method: "PUT",
       body: JSON.stringify({
         date: this.state.date,
