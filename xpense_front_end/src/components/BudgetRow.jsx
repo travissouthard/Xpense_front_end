@@ -18,7 +18,9 @@ class BudgetRow extends Component {
     return sum;
   }
   updateBudgetValue = (budgetValue) => {
-    this.state.budget.budget = budgetValue;
+    this.setState({
+      budget: budgetValue,
+    })
   }
   render () {
     return (
