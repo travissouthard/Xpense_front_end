@@ -47,7 +47,6 @@ export default function App() {
         const userRes = await Axios.get("http://localhost:3003/user/", {
           headers: { "x-auth-token": token },
         });
-        console.log(tokenRes.data)
         setUserData({
           token,
           user: userRes.data,
@@ -189,9 +188,9 @@ export default function App() {
         <Header />
         <div className="container">
         <Switch>
-          <Route exact path="/" component={Home}/>
-          <Route path="/register" component={Register}/>
-          <Route path="/login" component={Login}/> 
+          <Route exact path="/" component={Home} />
+          <Route path="/login" component={Login} /> 
+          <Route path="/register" component={Register} />
         {/* <h1>Xpense App</h1>
         {this.state.transactionFormOn ? (
           <TransactionForm
