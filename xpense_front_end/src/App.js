@@ -101,7 +101,7 @@ class App extends React.Component {
     })
   }
 
-  handleSubmit = (event) => {
+  handleNewTransaction = (event) => {
     event.preventDefault();
     fetch(baseUrl + "/budgets/" + this.state.category, {
       method: "PUT",
@@ -154,7 +154,7 @@ class App extends React.Component {
             category={this.state.category}
             spent={this.state.spent}
             handleChange={this.handleChange}
-            handleSubmit={this.handleSubmit}
+            handleNewTransaction={this.handleNewTransaction}
             toggleTransactionForm={this.toggleTransactionForm}
           />
           ) : (
