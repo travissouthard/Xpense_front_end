@@ -133,12 +133,12 @@ class App extends React.Component {
     this.getBudget()
   }
 
-  handleBudgetValueChange = (event, id, index) => {
+  handleBudgetValueChange = (event, id, value) => {
     event.preventDefault();
     fetch(baseUrl + 'budgets/' + id, {
       method: 'PUT',
       body: JSON.stringify({
-        budget: this.state.budget[index].budget,
+        budget: value,
       }),
       headers: {
       'Content-Type': 'application/json',
