@@ -22,10 +22,10 @@ class BudgetRow extends Component {
   }
   render () {
     return (
-      <tr>
+      <tr className={this.props.index%2==0 ?'table-light':'table-dark'}>
         <td>{this.props.title}</td>
-        <td><BudgetInput budget={this.props.budget} updateBudget={this.updateBudgetValue} baseUrl={this.props.baseUrl}/></td>
-        <td onClick={() => this.toggleTransactionModal()}>
+        <td className="text-right"><BudgetInput budget={this.props.budget} updateBudget={this.updateBudgetValue} baseUrl={this.props.baseUrl}/></td>
+        <td className="text-right" onClick={() => this.toggleTransactionModal()}>
           {this.sumTransactions(this.props.transactions)}
           {this.state.transactionModalOn ? (
             <TransactionModal transactions={this.props.transactions}/>
@@ -33,7 +33,7 @@ class BudgetRow extends Component {
             ""
           )}
         </td>
-        <td>{this.props.budget.budget-this.sumTransactions(this.props.transactions)}</td>
+        <td className="text-right">{this.props.budget.budget-this.sumTransactions(this.props.transactions)}</td>
       </tr>
     )
   }

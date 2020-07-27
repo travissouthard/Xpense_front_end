@@ -4,13 +4,13 @@ import BudgetRow from './BudgetRow'
 class BudgetTable extends Component {
   render () {
     return (
-      <table>
+      <table className="table table-sm">
         <thead>
           <tr>
-            <th></th>
-            <th>Budget</th>
-            <th>Spent</th>
-            <th>Remaining</th>
+            <th scope="col">Category</th>
+            <th scope="col" className="text-right">Budget</th>
+            <th scope="col" className="text-right">Spent</th>
+            <th scope="col" className="text-right">Remaining</th>
           </tr>
         </thead>
         <tbody>

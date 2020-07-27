@@ -143,7 +143,7 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
+      <div id='container'>
         <h1>Xpense App</h1>
         {this.state.transactionFormOn ? (
           <TransactionForm

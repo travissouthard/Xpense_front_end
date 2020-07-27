@@ -31,7 +31,7 @@ class BudgetInput extends Component {
     render() {
         return (
             <input 
-                className="budget-input"
+                className="budget-input form-control input-sm text-right"
                 type="number" id="budget"
                 min="0"
                 value={this.state.budget}
