@@ -5,10 +5,6 @@ input {
   max-width: 150px;
 }
 
-.budget {
-  float: right;
-}
-
 th {
   background-color: steelblue;
 }
@@ -21,5 +17,5 @@ th {
   background-color: rgb(161, 184, 199);
 }
 #budget {
-  align-items: right;
+  float: right;
 }

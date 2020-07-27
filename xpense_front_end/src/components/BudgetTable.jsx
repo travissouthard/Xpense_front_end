@@ -7,11 +7,11 @@ class BudgetTable extends Component {
       <table className="table table table-sm">
         <thead>
           <tr>
-            <th>Category</th>
-            <th>Budget</th>
-            <th>Spent</th>
-            <th>Remaining</th>
-            <th>Delete</th>
+            <th >Category</th>
+            <th className="text-right">Budget</th>
+            <th className="text-right">Spent</th>
+            <th className="text-right">Remaining</th>
+            <th className="text-right">Delete</th>
           </tr>
         </thead>
         <tbody>
