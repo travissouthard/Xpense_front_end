@@ -1,17 +1,76 @@
+body {
+  width: 90%;
+  margin: 0 auto;
+  background-color: rgb(208,220,227);
+}
+
+h1 {
+  text-align: center;
+}
+
+form {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+label {
+  margin: 0 5px;
+}
+
 table {
   table-layout: fixed;
 }
+
 input {
   max-width: 150px;
+}
+
+th {
+  background-color: steelblue;
+  text-align: center;
+}
+
+tr:hover {
+  background-color: rgb(208,220,227);
+}
+
+td {
+  text-align: center;
+}
+
+.td-number {
+  text-align: right;
+  padding: 0;
+  padding: 5px 10px;
+}
+
+.td-spent {
+  color: steelblue;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.td-delete {
+  cursor: pointer;
+}
+
+.td-spent table {
+  color: black;
+  text-decoration: none;
+  margin: 12px 0 0 0;
+  width: 525%;
+  transform: translate(-41%);
+  cursor: default;
 }
 
 .budget {
   float: right;
 }
 
-th {
-  background-color: steelblue;
-}
+/* .budget-input {
+  border: none;
+  background-color: none;
+} */
 
 .tr-even {
   background-color: white;
