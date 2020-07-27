@@ -32,7 +32,7 @@ class BudgetInput extends Component {
         return (
             <input 
                 className="budget-input form-control input-sm text-right"
-                type="number" id="budget"
+                type="number" id="budget" 
                 min="0"
                 value={this.state.budget}
                 onChange={ (evt) => this.handleChange(evt) }

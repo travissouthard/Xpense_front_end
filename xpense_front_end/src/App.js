@@ -160,7 +160,13 @@ class App extends React.Component {
           ) : (
             <button onClick={() => this.toggleTransactionForm()}>Add New Transaction</button>
           )}
-        <BudgetTable budget={this.state.budget} baseUrl={baseUrl} />
+        <div class="container">
+          <div class="panel-body">
+            <div class="table-responsive">
+              <BudgetTable budget={this.state.budget} baseUrl={baseUrl} />
+            </div>
+          </div>
+        </div>
       </div>
     )
   }

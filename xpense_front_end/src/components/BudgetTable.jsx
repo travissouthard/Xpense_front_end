@@ -4,7 +4,7 @@ import BudgetRow from './BudgetRow'
 class BudgetTable extends Component {
   render () {
     return (
-      <table className="table table-sm">
+      <table className="table">
         <thead>
           <tr>
             <th scope="col">Category</th>
@@ -16,7 +16,7 @@ class BudgetTable extends Component {
         <tbody>
         {  this.props.budget.map((budget, index)=> {
             return (
-                <BudgetRow key={index} title={budget.title} budget={budget} spent={budget.spent} transactions={budget.transactions} baseUrl={this.props.baseUrl}/>
+              <BudgetRow key={index} idx={index} title={budget.title} budget={budget} spent={budget.spent} transactions={budget.transactions} baseUrl={this.props.baseUrl}/>
             )
           })}
         </tbody>

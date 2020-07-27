@@ -18,13 +18,15 @@ class BudgetRow extends Component {
     return sum;
   }
   updateBudgetValue = (budgetValue) => {
-    this.state.budget.budget = budgetValue;
+    this.setState({
+      budget: budgetValue
+    })
   }
   render () {
     return (
-      <tr className={this.props.index%2==0 ?'table-light':'table-dark'}>
+      <tr className={this.props.idx%2===0 ?'tr-even':'tr-odd'}>
         <td>{this.props.title}</td>
-        <td className="text-right"><BudgetInput budget={this.props.budget} updateBudget={this.updateBudgetValue} baseUrl={this.props.baseUrl}/></td>
+        <td className= "budget text-right"><BudgetInput idx={this.props.idx} budget={this.props.budget} updateBudget={this.updateBudgetValue} baseUrl={this.props.baseUrl}/></td>
         <td className="text-right" onClick={() => this.toggleTransactionModal()}>
           {this.sumTransactions(this.props.transactions)}
           {this.state.transactionModalOn ? (
