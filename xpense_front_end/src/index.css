@@ -53,6 +53,15 @@ body {
   margin: 0px auto;
   max-width: 900px;
 }
+
+.form-button {
+  padding: 0.3rem 0.5rem;
+  border: 1px solid #386980;
+  background-color: steelblue;
+  border-radius: 6px;
+  color: whitesmoke;
+  font-size: .9rem;
+}
 /* Header */
 
 #Header {
