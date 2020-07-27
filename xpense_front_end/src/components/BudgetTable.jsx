@@ -19,6 +19,7 @@ class BudgetTable extends Component {
             return (
                 <BudgetRow
                   key={index}
+                  index={index}
                   title={budget.title}
                   budget={budget}
                   spent={budget.spent}

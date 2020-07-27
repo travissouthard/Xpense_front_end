@@ -18,7 +18,7 @@ export default class TransactionModal extends Component {
                             <td>{transaction.date}</td>
                             <td>{transaction.payee}</td>
                             <td>{transaction.spent}</td>
-                            <td onClick={() => this.props.deleteTransaction(index, this.props.budget.title)}>X</td>
+                            <td onClick={(event) => this.props.deleteTransaction(event, index, this.props.budget.title)}>X</td>
                         </tr>
                     )
                     })}

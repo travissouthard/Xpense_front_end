@@ -132,12 +132,12 @@ class App extends React.Component {
     this.getBudget()
   }
 
-  handleBudgetValueChange = (event, id) => {
+  handleBudgetValueChange = (event, id, index) => {
     event.preventDefault();
     fetch(baseUrl + 'budgets/' + id, {
       method: 'PUT',
       body: JSON.stringify({
-        budget: this.state.budget,
+        budget: this.state.budget[index].budget,
       }),
       headers: {
       'Content-Type': 'application/json',
@@ -165,7 +165,8 @@ class App extends React.Component {
     })
   }
 
-  deleteTransaction = (index, category) => {
+  deleteTransaction = (event, index, category) => {
+    event.stopPropagation()
     fetch(baseUrl + "budgets/" + category + "/" + index, {
       method: "PUT",
     }).then(res => res.json(

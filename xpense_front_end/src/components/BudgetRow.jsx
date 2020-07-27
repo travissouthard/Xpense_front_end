@@ -30,6 +30,7 @@ class BudgetRow extends Component {
           <BudgetInput
             baseUrl={this.props.baseUrl}
             budget={this.props.budget}
+            index={this.props.index}
             updateBudget={this.updateBudgetValue}
             handleBudgetValueChange={this.props.handleBudgetValueChange}
           />
