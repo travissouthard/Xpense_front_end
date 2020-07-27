@@ -131,6 +131,17 @@ class App extends React.Component {
     this.getBudget()
   }
 
+  deleteCategory = (id) => {
+    fetch(this.props.baseUrl + id, {
+      method: "DELETE",
+    }).then(res => {
+      const findIndex = this.state.budget.findIndex(budget => budget.id === id);
+      const copyBudget = [...this.state.budget];
+      copyBudget.splice(findIndex, 1);
+      this.setState({budget: copyBudget});
+    })
+  }
+
   toggleTransactionForm = () => {
     this.setState({
       transactionFormOn: !this.state.transactionFormOn,
@@ -160,7 +171,11 @@ class App extends React.Component {
           ) : (
             <button onClick={() => this.toggleTransactionForm()}>Add New Transaction</button>
           )}
-        <BudgetTable budget={this.state.budget} baseUrl={baseUrl} />
+        <BudgetTable
+          budget={this.state.budget}
+          baseUrl={baseUrl}
+          deleteCategory={this.deleteCategory}
+        />
       </div>
     )
   }

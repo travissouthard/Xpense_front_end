@@ -36,6 +36,7 @@ class BudgetRow extends Component {
           )}
         </td>
         <td>{this.props.budget.budget-this.sumTransactions(this.props.transactions)}</td>
+        <td onClick={() => this.props.deleteCategory(this.props.budget._id)}>X</td>
       </tr>
     )
   }

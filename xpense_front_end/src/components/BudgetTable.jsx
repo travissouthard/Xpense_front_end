@@ -11,12 +11,21 @@ class BudgetTable extends Component {
             <th>Budget</th>
             <th>Spent</th>
             <th>Remaining</th>
+            <th>Delete</th>
           </tr>
         </thead>
         <tbody>
         {  this.props.budget.map((budget, index)=> {
             return (
-                <BudgetRow key={index} title={budget.title} budget={budget} spent={budget.spent} transactions={budget.transactions} baseUrl={this.props.baseUrl}/>
+                <BudgetRow
+                  key={index}
+                  title={budget.title}
+                  budget={budget}
+                  spent={budget.spent}
+                  transactions={budget.transactions}
+                  baseUrl={this.props.baseUrl}
+                  deleteCategory={this.props.deleteCategory}
+                />
             )
           })}
         </tbody>
