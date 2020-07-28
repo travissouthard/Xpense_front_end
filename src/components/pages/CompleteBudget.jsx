@@ -4,13 +4,11 @@ import BudgetForm from '../BudgetForm'
 import BudgetTable from '../BudgetTable'
 import TransactionForm from '../TransactionForm';
 
-
-
 // const baseUrl = 'http://localhost:3003/';
 // setup env file for front end
 let baseUrl;
 if (process.env.NODE_ENV === 'development') {
-  baseUrl = 'http://localhost:3000/';
+  baseUrl = 'http://localhost:3003/';
 } else {
   baseUrl = 'https://xpense-backend.herokuapp.com/';
 }
