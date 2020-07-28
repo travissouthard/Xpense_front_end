@@ -18,29 +18,29 @@ export default function Register(props) {
         event.preventDefault()
         
         try {
-        const newUser = { email, username, password, passwordCheck }
-        await Axios.post(props.baseUrl + "/user/register",newUser)
-        const loginRes = await Axios.post(props.baseUrl + "/user/login", { email, 
-        password,
-    })
-    setUserData({
-        token: loginRes.data.token,
-        user: loginRes.data.user
-    })
-    localStorage.setItem("auth-token", loginRes.data.token)
-    history.push('/')
-
-    } catch (err) {
-        console.log(err)
-        // err.response.data.msg && setError(err.response.data.msg)
+            const newUser = { email, username, password, passwordCheck }
+            await Axios.post(props.baseUrl + "/user/register", newUser)
+            const loginRes = await Axios.post(props.baseUrl + "/user/login", {
+                email, 
+                password,
+            })
+            setUserData({
+                token: loginRes.data.token,
+                user: loginRes.data.user
+            })
+            localStorage.setItem("auth-token", loginRes.data.token)
+            history.push('/')
+        } catch (err) {
+            console.log(err)
+            err.response.data.msg && setError(err.response.data.msg)
+        }
     }
-}
     return (
         <div className="page">
             <h2>Register</h2>
             {error && (
         <ErrorMsg message={error} clearError={() => setError(undefined)} />
-      )}
+        )}
             <form className="form" onSubmit={submit}>
             <label htmlFor="register-email">Email</label>
             <input 
