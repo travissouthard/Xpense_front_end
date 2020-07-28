@@ -10,7 +10,7 @@ let baseUrl;
 if (process.env.NODE_ENV === 'development') {
   baseUrl = 'http://localhost:3003';
 } else {
-  baseUrl = 'https://quiet-retreat-43031.herokuapp.com/';
+  baseUrl = 'https://quiet-retreat-43031.herokuapp.com';
 }
 console.log('current base URL:', baseUrl);
 
