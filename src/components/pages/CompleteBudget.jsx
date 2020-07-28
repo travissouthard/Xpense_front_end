@@ -6,14 +6,14 @@ import TransactionForm from './components/TransactionForm';
 
 
 
-const baseUrl = 'http://localhost:3003/';
-//TODO setup env file for front end
-// let baseUrl;
-// if (process.env.NODE_ENV === 'development') {
-//   baseUrl = 'http://localhost:3000';
-// } else {
-//   baseUrl = 'https://peaceful-stream-27012.herokuapp.com';
-// }
+// const baseUrl = 'http://localhost:3003/';
+// setup env file for front end
+let baseUrl;
+if (process.env.NODE_ENV === 'development') {
+  baseUrl = 'http://localhost:3000';
+} else {
+  baseUrl = 'https://xpense-backend.herokuapp.com/';
+}
 console.log('current base URL:', baseUrl);
 
 //note: ran into error, had to hard code seed data- Tania 
