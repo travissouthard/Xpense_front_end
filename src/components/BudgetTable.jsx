@@ -11,6 +11,7 @@ class BudgetTable extends Component {
             <th>Budget</th>
             <th>Spent</th>
             <th>Remaining</th>
+            <th>Delete</th>
           </tr>
         </thead>
         <tbody>

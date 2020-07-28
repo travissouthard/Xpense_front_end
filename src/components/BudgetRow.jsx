@@ -19,18 +19,31 @@ class BudgetRow extends Component {
   }
   render () {
     return (
-      <tr>
+      <tr className={this.props.index%2===0 ?'tr-even':'tr-odd'}>
         <td>{this.props.title}</td>
-        <td><BudgetInput budget={this.props.budget} handleBudgetValueChange={this.props.handleBudgetValueChange}/></td>
-        <td onClick={() => this.toggleTransactionModal()}>
-          {this.sumTransactions(this.props.transactions)}
+        <td>
+          <BudgetInput
+            baseUrl={this.props.baseUrl}
+            budget={this.props.budget}
+            index={this.props.index}
+            handleChange={this.props.handleChange}
+            updateBudget={this.updateBudgetValue}
+            handleBudgetValueChange={this.props.handleBudgetValueChange}
+          />
+        </td>
+        <td className="td-number td-spent" onClick={() => this.toggleTransactionModal()}>
+          ${this.sumTransactions(this.props.transactions)}
           {this.state.transactionModalOn ? (
-            <TransactionModal transactions={this.props.transactions}/>
+            <TransactionModal
+              transactions={this.props.transactions}
+              budget={this.props.budget}
+              deleteTransaction={this.props.deleteTransaction}/>
           ) : (
             ""
           )}
         </td>
-        <td>{this.props.budget.budget-this.sumTransactions(this.props.transactions)}</td>
+        <td className="td-number">${this.props.budget.budget-this.sumTransactions(this.props.transactions)}</td>
+        <td className="td-delete" onClick={() => this.props.deleteCategory(this.props.budget._id)}>X</td>
       </tr>
     )
   }
