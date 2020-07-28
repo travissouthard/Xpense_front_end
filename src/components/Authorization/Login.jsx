@@ -4,7 +4,7 @@ import UserContext from "../../context/UserContext"
 import Axios from 'axios'
 import ErrorMsg from "../Error/ErrorMsg"
 
-export default function Login() {
+export default function Login(props) {
     const [email, setEmail] = useState()
     const [password, setPassword] = useState()
     const [error, setError] = useState()
@@ -16,7 +16,7 @@ export default function Login() {
         event.preventDefault()
         try {
         const loginUser = { email, password }
-        const loginRes = await Axios.post(this.props.baseUrl + "/user/login", loginUser
+        const loginRes = await Axios.post(props.baseUrl + "/user/login", loginUser
     )
     setUserData({
         token: loginRes.data.token,

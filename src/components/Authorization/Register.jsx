@@ -19,8 +19,8 @@ export default function Register(props) {
         
         try {
         const newUser = { email, username, password, passwordCheck }
-        await Axios.post(this.props.baseUrl + "/user/register",newUser)
-        const loginRes = await Axios.post(this.props.baseUrl + "/user/login", { email, 
+        await Axios.post(props.baseUrl + "/user/register",newUser)
+        const loginRes = await Axios.post(props.baseUrl + "/user/login", { email, 
         password,
     })
     setUserData({
@@ -31,7 +31,8 @@ export default function Register(props) {
     history.push('/')
 
     } catch (err) {
-        err.response.data.msg && setError(err.response.data.msg)
+        console.log(err)
+        // err.response.data.msg && setError(err.response.data.msg)
     }
 }
     return (
