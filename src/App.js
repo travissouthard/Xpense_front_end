@@ -17,21 +17,12 @@ import UserContext from './context/UserContext';
 const baseUrl = 'http://localhost:3003';
 
 //TODO setup env file for front end
-<<<<<<< HEAD
-// let baseUrl;
-// if (process.env.NODE_ENV === 'development') {
-//   baseUrl = 'http://localhost:3000';
-// } else {
-//   baseUrl = 'https://xpense-backend.herokuapp.com/';
-// }
-=======
 let baseUrl;
 if (process.env.NODE_ENV === 'development') {
   baseUrl = 'http://localhost:3003';
 } else {
-  baseUrl = 'https://quiet-retreat-43031.herokuapp.com';
+  baseUrl = 'https://xpense-backend.herokuapp.com/';
 }
->>>>>>> 18e1c7aada74b46240d32220370c0ad90e0a2248
 console.log('current base URL:', baseUrl);
 //???? All of this portion was written in hooks but the rest in not formatted this way...not sure how to integrate this UserContext to our App.js...???? Explanation of the function is https://youtu.be/sWfD20ortB4?t=1398
 
