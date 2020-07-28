@@ -1,8 +1,8 @@
 import React from 'react';
 
-import BudgetForm from './components/BudgetForm'
-import BudgetTable from './components/BudgetTable'
-import TransactionForm from './components/TransactionForm';
+import BudgetForm from '../BudgetForm'
+import BudgetTable from '../BudgetTable'
+import TransactionForm from '../TransactionForm';
 
 
 
@@ -10,7 +10,7 @@ import TransactionForm from './components/TransactionForm';
 // setup env file for front end
 let baseUrl;
 if (process.env.NODE_ENV === 'development') {
-  baseUrl = 'http://localhost:3000';
+  baseUrl = 'http://localhost:3000/';
 } else {
   baseUrl = 'https://xpense-backend.herokuapp.com/';
 }
