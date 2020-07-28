@@ -34,7 +34,6 @@ class App extends React.Component {
 
   getBudget = () => {
     fetch(baseUrl + 'budgets').then(res => {
-      // console.log(baseUrl)
       return res.json();
     }).then(data => {
       this.setState({
