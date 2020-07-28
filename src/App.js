@@ -13,7 +13,9 @@ import UserContext from './context/UserContext';
 
 
 
+
 const baseUrl = 'http://localhost:3003';
+
 //TODO setup env file for front end
 // let baseUrl;
 // if (process.env.NODE_ENV === 'development') {
