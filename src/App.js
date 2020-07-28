@@ -21,7 +21,7 @@ let baseUrl;
 if (process.env.NODE_ENV === 'development') {
   baseUrl = 'http://localhost:3003';
 } else {
-  baseUrl = 'https://xpense-backend.herokuapp.com/';
+  baseUrl = 'https://xpense-backend.herokuapp.com';
 }
 console.log('current base URL:', baseUrl);
 //???? All of this portion was written in hooks but the rest in not formatted this way...not sure how to integrate this UserContext to our App.js...???? Explanation of the function is https://youtu.be/sWfD20ortB4?t=1398
@@ -41,12 +41,12 @@ export default function App() {
         token = "";
       }
       const tokenRes = await Axios.post(
-        "http://localhost:3003/user/tokenIsValid",
+        baseUrl+"/user/tokenIsValid",
         null,
         { headers: { "x-auth-token": token } }
       );
       if (tokenRes.data) {
-        const userRes = await Axios.get("http://localhost:3003/user/", {
+        const userRes = await Axios.get(baseUrl+"/user/", {
           headers: { "x-auth-token": token },
         });
         setUserData({
