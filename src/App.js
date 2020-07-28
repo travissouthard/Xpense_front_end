@@ -150,8 +150,8 @@ export default function App() {
         <div className="container">
         <Switch>
           <Route exact path="/" component={Home} />
-          <Route path="/login" component={Login} /> 
-          <Route path="/register" component={Register} />
+          <Route path="/login" component={Login} baseUrl={baseUrl} /> 
+          <Route path="/register" component={Register} baseUrl={baseUrl}/>
         {/* <h1>Xpense App</h1>
         {this.state.transactionFormOn ? (
           <TransactionForm
