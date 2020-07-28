@@ -16,7 +16,7 @@ export default function Login() {
         event.preventDefault()
         try {
         const loginUser = { email, password }
-        const loginRes = await Axios.post("http://localhost:3003/user/login", loginUser
+        const loginRes = await Axios.post(this.props.baseUrl + "/user/login", loginUser
     )
     setUserData({
         token: loginRes.data.token,

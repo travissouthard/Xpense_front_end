@@ -19,8 +19,8 @@ export default function Register(props) {
         
         try {
         const newUser = { email, username, password, passwordCheck }
-        await Axios.post("http://localhost:3003/user/register",newUser)
-        const loginRes = await Axios.post("http://localhost:3003/user/login", { email, 
+        await Axios.post(this.props.baseUrl + "/user/register",newUser)
+        const loginRes = await Axios.post(this.props.baseUrl + "/user/login", { email, 
         password,
     })
     setUserData({
