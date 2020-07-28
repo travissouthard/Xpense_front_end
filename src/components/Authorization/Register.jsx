@@ -4,7 +4,7 @@ import UserContext from "../../context/UserContext"
 import Axios from 'axios'
 import ErrorMsg from "../Error/ErrorMsg"
 
-export default function Register() {
+export default function Register(props) {
     const [email, setEmail] = useState()
     const [username, setUsername] = useState()
     const [password, setPassword] = useState()
